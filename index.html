@@ -1,200 +1,191 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
-</head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="ru"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Бланк расчета стоимости — Центр Реабилитации&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f4f8; color: #333; padding: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.calc-container { max-width: 600px; background: white; margin: 0 auto; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Блок хедера (логотип и контакты) */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; border-bottom: 2px solid #1a73e8; padding-bottom: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.logo-area { font-size: 24px; font-weight: bold; color: #1a73e8; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.contacts-area { font-size: 12px; text-align: right; color: #666; line-height: 1.5; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>h2 { text-align: center; color: #2c3e50; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.group { margin-bottom: 15px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #444; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>select, input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; box-sizing: border-box; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.result-box { margin-top: 25px; padding: 25px; background: #f8fbff; border: 1px solid #d1e3f8; border-radius: 10px; text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.total-price { font-size: 42px; font-weight: 900; color: #1a73e8; margin: 10px 0; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-print { width: 100%; background: #1a73e8; color: white; padding: 16px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-print:hover { background: #1557b0; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.season-badge { display: inline-block; padding: 4px 12px; border-radius: 15px; font-size: 11px; font-weight: bold; margin-bottom: 10px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.summer { background: #fff3cd; color: #856404; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.winter { background: #e2e3e5; color: #383d41; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.signature-block { display: none; margin-top: 40px; justify-content: space-between; font-size: 14px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* НАСТРОЙКИ ПЕЧАТИ */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media print {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>body { background: white; padding: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.calc-container { box-shadow: none; max-width: 100%; padding: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.btn-print, select, input, label, #arrivalDate { display: none; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.print-data { display: block !important; margin-bottom: 15px; font-size: 16px; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.signature-block { display: flex; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.result-box { background: white !important; border: 2px solid #1a73e8; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.print-data { display: none; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="calc-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="logo-area"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://via.placeholder.com/150x50?text=LOGO" alt="Логотип" id="logoImg"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="contacts-area"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;Центр Реабилитации&lt;/strong&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>г. Ваш Город, ул. Примерная, 10&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>Тел: +7 (999) 000-00-00&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>www.вашсайт.рф</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Расчет стоимости&lt;/h2&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;ФИО Клиента:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="clientName" placeholder="Для кого расчет?" oninput="syncPrint()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="print-data" id="summary"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Дата планируемого заезда:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="date" id="arrivalDate" onchange="calculate()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Программа и состав семьи:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="familyType" onchange="updateOptions()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="v1_r1"&gt;1 взрослый + 1 ребенок (РЕА)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="v1_r1_free"&gt;1 взрослый + 1 реб. (РЕА) + 1 реб. (до 6 лет БЕСПЛАТНО)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="v2_r1"&gt;2 взрослых + 1 ребенок (РЕА)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="v2_r1_free"&gt;2 взрослых + 1 реб. (РЕА) + 1 реб. (до 6 лет БЕСПЛАТНО)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="v1_r2"&gt;1 взрослый + 2 детей (РЕА)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="v2_r2_1rea"&gt;2 взрослых + 2 детей (1 РЕА)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="v2_r2_2rea"&gt;2 взрослых + 2 детей (2 РЕА)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="v5_1rea"&gt;Семья 5 человек (1 РЕА)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="v5_2rea"&gt;Семья 5 человек (2 РЕА)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Категория проживания:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="roomType" onchange="calculate()"&gt;&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Срок пребывания:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="weeks" onchange="calculate()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="0"&gt;2 недели (курс)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="1"&gt;3 недели (курс)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;option value="2"&gt;4 недели (курс)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="result-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="seasonIndicator" class="season-badge"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="font-size: 14px; color: #666; text-transform: uppercase;"&gt;Итоговая сумма:&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="total-price"&gt;&lt;span id="total"&gt;0&lt;/span&gt; $&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="promoNote" style="color: #28a745; font-size: 13px; font-weight: bold; margin-top: 10px; display: none;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>✓ Включено бесплатное проживание ребенка до 6 лет</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="signature-block"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;М.П. _________________&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;Дата: ___ / ___ / 2026 г.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn-print" onclick="window.print()"&gt;Сформировать бланк (PDF)&lt;/button&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const db = {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>"v1_r1": { "STD": [[3990, 4660], [5985, 6990], [7980, 9320]], "DLX": [[4270, 5010], [6405, 7515], [8540, 10020]] },</p>
-<p class="p1"><span class="Apple-converted-space">        </span>"v2_r1": { "STD": [[5040, 5920], [7560, 8880], [10080, 11840]], "DLX": [[5460, 6480], [8190, 9720], [10920, 12960]], "DLX+": [[5810, 6900], [8715, 10350], [11620, 13800]] },</p>
-<p class="p1"><span class="Apple-converted-space">        </span>"v1_r2": { "STD": [[4550, 5360], [6825, 8040], [9100, 10720]], "DLX": [[4830, 5710], [7245, 8565], [9660, 11420]], "DLX+": [[5810, 6900], [8715, 10350], [11620, 13800]] },</p>
-<p class="p1"><span class="Apple-converted-space">        </span>"v2_r2_1rea": { "STD": [[5600, 6620], [8400, 9930], [11200, 13240]], "DLX+": [[5810, 6900], [8715, 10350], [11620, 13800]], "DLX_Fam": [[6160, 7320], [9240, 10980], [12320, 14640]] },</p>
-<p class="p1"><span class="Apple-converted-space">        </span>"v2_r2_2rea": { "STD": [[6965, 8120], [10450, 12180], [13930, 16240]], "DLX+": [[7175, 8400], [10765, 12600], [14350, 16800]], "DLX_Fam": [[7525, 8820], [11290, 13230], [15050, 17640]] },</p>
-<p class="p1"><span class="Apple-converted-space">        </span>"v5_1rea": { "DLX_Fam": [[6160, 7320], [9240, 10980], [12320, 14640]] },</p>
-<p class="p1"><span class="Apple-converted-space">        </span>"v5_2rea": { "DLX_Fam": [[7525, 8820], [11290, 13230], [15050, 17640]] }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>};</p>
-<p class="p1"><span class="Apple-converted-space">    </span>db["v1_r1_free"] = db["v1_r1"];</p>
-<p class="p1"><span class="Apple-converted-space">    </span>db["v2_r1_free"] = db["v2_r1"];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('arrivalDate').valueAsDate = new Date();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function updateOptions() {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const family = document.getElementById('familyType').value;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const roomSelect = document.getElementById('roomType');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>roomSelect.innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>for (let room in db[family]) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let opt = document.createElement('option');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opt.value = room;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opt.innerHTML = room.replace('_', ' ');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>roomSelect.appendChild(opt);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>calculate();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function calculate() {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const dateInput = document.getElementById('arrivalDate').value;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const dateVal = new Date(dateInput);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const familySelect = document.getElementById('familyType');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const family = familySelect.value;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const room = document.getElementById('roomType').value;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const weekSelect = document.getElementById('weeks');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const weekIdx = weekSelect.value;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const month = dateVal.getMonth();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const day = dateVal.getDate();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let isHighSeason = (month &gt; 4 &amp;&amp; month &lt; 9) || (month === 4) || (month === 9 &amp;&amp; day &lt;= 15);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const priceTypeIdx = isHighSeason ? 1 : 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const finalPrice = db[family][room][weekIdx][priceTypeIdx];</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('total').innerText = finalPrice.toLocaleString();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Данные для бланка</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('summary').innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;Клиент:&lt;/strong&gt; ${document.getElementById('clientName').value || '________________'}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;Период заезда:&lt;/strong&gt; ${dateInput} (${isHighSeason ? 'Летний сезон' : 'Стандартный сезон'})&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;Программа:&lt;/strong&gt; ${familySelect.options[familySelect.selectedIndex].text}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;Категория номера:&lt;/strong&gt; ${room}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;Длительность:&lt;/strong&gt; ${weekSelect.options[weekSelect.selectedIndex].text}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('seasonIndicator').innerText = isHighSeason ? "☀ Летние цены (с 01.05 по 15.10)" : "❄ Стандартные цены";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('seasonIndicator').className = "season-badge " + (isHighSeason ? "summer" : "winter");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('promoNote').style.display = family.includes('free') ? 'block' : 'none';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function syncPrint() { calculate(); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>updateOptions();</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
-</body>
-</html>
+{\rtf1\ansi\ansicpg1251\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh14960\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="ru">\
+<head>\
+    <meta charset="UTF-8">\
+    <title>\uc0\u1041 \u1083 \u1072 \u1085 \u1082  \u1088 \u1072 \u1089 \u1095 \u1077 \u1090 \u1072  \u1089 \u1090 \u1086 \u1080 \u1084 \u1086 \u1089 \u1090 \u1080  \'97 \u1062 \u1077 \u1085 \u1090 \u1088  \u1056 \u1077 \u1072 \u1073 \u1080 \u1083 \u1080 \u1090 \u1072 \u1094 \u1080 \u1080 </title>\
+    <style>\
+        body \{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f4f8; color: #333; padding: 20px; \}\
+        .calc-container \{ max-width: 600px; background: white; margin: 0 auto; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative; \}\
+        \
+        /* \uc0\u1041 \u1083 \u1086 \u1082  \u1093 \u1077 \u1076 \u1077 \u1088 \u1072  (\u1083 \u1086 \u1075 \u1086 \u1090 \u1080 \u1087  \u1080  \u1082 \u1086 \u1085 \u1090 \u1072 \u1082 \u1090 \u1099 ) */\
+        .header \{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; border-bottom: 2px solid #1a73e8; padding-bottom: 20px; \}\
+        .logo-area \{ font-size: 24px; font-weight: bold; color: #1a73e8; \}\
+        .contacts-area \{ font-size: 12px; text-align: right; color: #666; line-height: 1.5; \}\
+        \
+        h2 \{ text-align: center; color: #2c3e50; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; \}\
+        \
+        .group \{ margin-bottom: 15px; \}\
+        label \{ display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #444; \}\
+        select, input \{ width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; box-sizing: border-box; \}\
+        \
+        .result-box \{ margin-top: 25px; padding: 25px; background: #f8fbff; border: 1px solid #d1e3f8; border-radius: 10px; text-align: center; \}\
+        .total-price \{ font-size: 42px; font-weight: 900; color: #1a73e8; margin: 10px 0; \}\
+        \
+        .btn-print \{ width: 100%; background: #1a73e8; color: white; padding: 16px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 20px; \}\
+        .btn-print:hover \{ background: #1557b0; \}\
+\
+        .season-badge \{ display: inline-block; padding: 4px 12px; border-radius: 15px; font-size: 11px; font-weight: bold; margin-bottom: 10px; \}\
+        .summer \{ background: #fff3cd; color: #856404; \}\
+        .winter \{ background: #e2e3e5; color: #383d41; \}\
+\
+        .signature-block \{ display: none; margin-top: 40px; justify-content: space-between; font-size: 14px; \}\
+\
+        /* \uc0\u1053 \u1040 \u1057 \u1058 \u1056 \u1054 \u1049 \u1050 \u1048  \u1055 \u1045 \u1063 \u1040 \u1058 \u1048  */\
+        @media print \{\
+            body \{ background: white; padding: 0; \}\
+            .calc-container \{ box-shadow: none; max-width: 100%; padding: 0; \}\
+            .btn-print, select, input, label, #arrivalDate \{ display: none; \}\
+            .print-data \{ display: block !important; margin-bottom: 15px; font-size: 16px; \}\
+            .signature-block \{ display: flex; \}\
+            .result-box \{ background: white !important; border: 2px solid #1a73e8; \}\
+        \}\
+        .print-data \{ display: none; \}\
+    </style>\
+</head>\
+<body>\
+\
+<div class="calc-container">\
+    <div class="header">\
+        <div class="logo-area">\
+            <img src="https://via.placeholder.com/150x50?text=LOGO" alt="\uc0\u1051 \u1086 \u1075 \u1086 \u1090 \u1080 \u1087 " id="logoImg">\
+        </div>\
+        <div class="contacts-area">\
+            <strong>\uc0\u1062 \u1077 \u1085 \u1090 \u1088  \u1056 \u1077 \u1072 \u1073 \u1080 \u1083 \u1080 \u1090 \u1072 \u1094 \u1080 \u1080 </strong><br>\
+            \uc0\u1075 . \u1042 \u1072 \u1096  \u1043 \u1086 \u1088 \u1086 \u1076 , \u1091 \u1083 . \u1055 \u1088 \u1080 \u1084 \u1077 \u1088 \u1085 \u1072 \u1103 , 10<br>\
+            \uc0\u1058 \u1077 \u1083 : +7 (999) 000-00-00<br>\
+            www.\uc0\u1074 \u1072 \u1096 \u1089 \u1072 \u1081 \u1090 .\u1088 \u1092 \
+        </div>\
+    </div>\
+\
+    <h2>\uc0\u1056 \u1072 \u1089 \u1095 \u1077 \u1090  \u1089 \u1090 \u1086 \u1080 \u1084 \u1086 \u1089 \u1090 \u1080 </h2>\
+\
+    <div class="group">\
+        <label>\uc0\u1060 \u1048 \u1054  \u1050 \u1083 \u1080 \u1077 \u1085 \u1090 \u1072 :</label>\
+        <input type="text" id="clientName" placeholder="\uc0\u1044 \u1083 \u1103  \u1082 \u1086 \u1075 \u1086  \u1088 \u1072 \u1089 \u1095 \u1077 \u1090 ?" oninput="syncPrint()">\
+    </div>\
+\
+    <div class="print-data" id="summary"></div>\
+\
+    <div class="group">\
+        <label>\uc0\u1044 \u1072 \u1090 \u1072  \u1087 \u1083 \u1072 \u1085 \u1080 \u1088 \u1091 \u1077 \u1084 \u1086 \u1075 \u1086  \u1079 \u1072 \u1077 \u1079 \u1076 \u1072 :</label>\
+        <input type="date" id="arrivalDate" onchange="calculate()">\
+    </div>\
+\
+    <div class="group">\
+        <label>\uc0\u1055 \u1088 \u1086 \u1075 \u1088 \u1072 \u1084 \u1084 \u1072  \u1080  \u1089 \u1086 \u1089 \u1090 \u1072 \u1074  \u1089 \u1077 \u1084 \u1100 \u1080 :</label>\
+        <select id="familyType" onchange="updateOptions()">\
+            <option value="v1_r1">1 \uc0\u1074 \u1079 \u1088 \u1086 \u1089 \u1083 \u1099 \u1081  + 1 \u1088 \u1077 \u1073 \u1077 \u1085 \u1086 \u1082  (\u1056 \u1045 \u1040 )</option>\
+            <option value="v1_r1_free">1 \uc0\u1074 \u1079 \u1088 \u1086 \u1089 \u1083 \u1099 \u1081  + 1 \u1088 \u1077 \u1073 . (\u1056 \u1045 \u1040 ) + 1 \u1088 \u1077 \u1073 . (\u1076 \u1086  6 \u1083 \u1077 \u1090  \u1041 \u1045 \u1057 \u1055 \u1051 \u1040 \u1058 \u1053 \u1054 )</option>\
+            <option value="v2_r1">2 \uc0\u1074 \u1079 \u1088 \u1086 \u1089 \u1083 \u1099 \u1093  + 1 \u1088 \u1077 \u1073 \u1077 \u1085 \u1086 \u1082  (\u1056 \u1045 \u1040 )</option>\
+            <option value="v2_r1_free">2 \uc0\u1074 \u1079 \u1088 \u1086 \u1089 \u1083 \u1099 \u1093  + 1 \u1088 \u1077 \u1073 . (\u1056 \u1045 \u1040 ) + 1 \u1088 \u1077 \u1073 . (\u1076 \u1086  6 \u1083 \u1077 \u1090  \u1041 \u1045 \u1057 \u1055 \u1051 \u1040 \u1058 \u1053 \u1054 )</option>\
+            <option value="v1_r2">1 \uc0\u1074 \u1079 \u1088 \u1086 \u1089 \u1083 \u1099 \u1081  + 2 \u1076 \u1077 \u1090 \u1077 \u1081  (\u1056 \u1045 \u1040 )</option>\
+            <option value="v2_r2_1rea">2 \uc0\u1074 \u1079 \u1088 \u1086 \u1089 \u1083 \u1099 \u1093  + 2 \u1076 \u1077 \u1090 \u1077 \u1081  (1 \u1056 \u1045 \u1040 )</option>\
+            <option value="v2_r2_2rea">2 \uc0\u1074 \u1079 \u1088 \u1086 \u1089 \u1083 \u1099 \u1093  + 2 \u1076 \u1077 \u1090 \u1077 \u1081  (2 \u1056 \u1045 \u1040 )</option>\
+            <option value="v5_1rea">\uc0\u1057 \u1077 \u1084 \u1100 \u1103  5 \u1095 \u1077 \u1083 \u1086 \u1074 \u1077 \u1082  (1 \u1056 \u1045 \u1040 )</option>\
+            <option value="v5_2rea">\uc0\u1057 \u1077 \u1084 \u1100 \u1103  5 \u1095 \u1077 \u1083 \u1086 \u1074 \u1077 \u1082  (2 \u1056 \u1045 \u1040 )</option>\
+        </select>\
+    </div>\
+\
+    <div class="group">\
+        <label>\uc0\u1050 \u1072 \u1090 \u1077 \u1075 \u1086 \u1088 \u1080 \u1103  \u1087 \u1088 \u1086 \u1078 \u1080 \u1074 \u1072 \u1085 \u1080 \u1103 :</label>\
+        <select id="roomType" onchange="calculate()"></select>\
+    </div>\
+\
+    <div class="group">\
+        <label>\uc0\u1057 \u1088 \u1086 \u1082  \u1087 \u1088 \u1077 \u1073 \u1099 \u1074 \u1072 \u1085 \u1080 \u1103 :</label>\
+        <select id="weeks" onchange="calculate()">\
+            <option value="0">2 \uc0\u1085 \u1077 \u1076 \u1077 \u1083 \u1080  (\u1082 \u1091 \u1088 \u1089 )</option>\
+            <option value="1">3 \uc0\u1085 \u1077 \u1076 \u1077 \u1083 \u1080  (\u1082 \u1091 \u1088 \u1089 )</option>\
+            <option value="2">4 \uc0\u1085 \u1077 \u1076 \u1077 \u1083 \u1080  (\u1082 \u1091 \u1088 \u1089 )</option>\
+        </select>\
+    </div>\
+\
+    <div class="result-box">\
+        <div id="seasonIndicator" class="season-badge"></div>\
+        <div style="font-size: 14px; color: #666; text-transform: uppercase;">\uc0\u1048 \u1090 \u1086 \u1075 \u1086 \u1074 \u1072 \u1103  \u1089 \u1091 \u1084 \u1084 \u1072 :</div>\
+        <div class="total-price"><span id="total">0</span> $</div>\
+        <div id="promoNote" style="color: #28a745; font-size: 13px; font-weight: bold; margin-top: 10px; display: none;">\
+            \uc0\u10003  \u1042 \u1082 \u1083 \u1102 \u1095 \u1077 \u1085 \u1086  \u1073 \u1077 \u1089 \u1087 \u1083 \u1072 \u1090 \u1085 \u1086 \u1077  \u1087 \u1088 \u1086 \u1078 \u1080 \u1074 \u1072 \u1085 \u1080 \u1077  \u1088 \u1077 \u1073 \u1077 \u1085 \u1082 \u1072  \u1076 \u1086  6 \u1083 \u1077 \u1090 \
+        </div>\
+    </div>\
+\
+    <div class="signature-block">\
+        <div>\uc0\u1052 .\u1055 . _________________</div>\
+        <div>\uc0\u1044 \u1072 \u1090 \u1072 : ___ / ___ / 2026 \u1075 .</div>\
+    </div>\
+\
+    <button class="btn-print" onclick="window.print()">\uc0\u1057 \u1092 \u1086 \u1088 \u1084 \u1080 \u1088 \u1086 \u1074 \u1072 \u1090 \u1100  \u1073 \u1083 \u1072 \u1085 \u1082  (PDF)</button>\
+</div>\
+\
+<script>\
+    const db = \{\
+        "v1_r1": \{ "STD": [[3990, 4660], [5985, 6990], [7980, 9320]], "DLX": [[4270, 5010], [6405, 7515], [8540, 10020]] \},\
+        "v2_r1": \{ "STD": [[5040, 5920], [7560, 8880], [10080, 11840]], "DLX": [[5460, 6480], [8190, 9720], [10920, 12960]], "DLX+": [[5810, 6900], [8715, 10350], [11620, 13800]] \},\
+        "v1_r2": \{ "STD": [[4550, 5360], [6825, 8040], [9100, 10720]], "DLX": [[4830, 5710], [7245, 8565], [9660, 11420]], "DLX+": [[5810, 6900], [8715, 10350], [11620, 13800]] \},\
+        "v2_r2_1rea": \{ "STD": [[5600, 6620], [8400, 9930], [11200, 13240]], "DLX+": [[5810, 6900], [8715, 10350], [11620, 13800]], "DLX_Fam": [[6160, 7320], [9240, 10980], [12320, 14640]] \},\
+        "v2_r2_2rea": \{ "STD": [[6965, 8120], [10450, 12180], [13930, 16240]], "DLX+": [[7175, 8400], [10765, 12600], [14350, 16800]], "DLX_Fam": [[7525, 8820], [11290, 13230], [15050, 17640]] \},\
+        "v5_1rea": \{ "DLX_Fam": [[6160, 7320], [9240, 10980], [12320, 14640]] \},\
+        "v5_2rea": \{ "DLX_Fam": [[7525, 8820], [11290, 13230], [15050, 17640]] \}\
+    \};\
+    db["v1_r1_free"] = db["v1_r1"];\
+    db["v2_r1_free"] = db["v2_r1"];\
+\
+    document.getElementById('arrivalDate').valueAsDate = new Date();\
+\
+    function updateOptions() \{\
+        const family = document.getElementById('familyType').value;\
+        const roomSelect = document.getElementById('roomType');\
+        roomSelect.innerHTML = '';\
+        for (let room in db[family]) \{\
+            let opt = document.createElement('option');\
+            opt.value = room;\
+            opt.innerHTML = room.replace('_', ' ');\
+            roomSelect.appendChild(opt);\
+        \}\
+        calculate();\
+    \}\
+\
+    function calculate() \{\
+        const dateInput = document.getElementById('arrivalDate').value;\
+        const dateVal = new Date(dateInput);\
+        const familySelect = document.getElementById('familyType');\
+        const family = familySelect.value;\
+        const room = document.getElementById('roomType').value;\
+        const weekSelect = document.getElementById('weeks');\
+        const weekIdx = weekSelect.value;\
+        \
+        const month = dateVal.getMonth();\
+        const day = dateVal.getDate();\
+        let isHighSeason = (month > 4 && month < 9) || (month === 4) || (month === 9 && day <= 15);\
+\
+        const priceTypeIdx = isHighSeason ? 1 : 0;\
+        const finalPrice = db[family][room][weekIdx][priceTypeIdx];\
+        document.getElementById('total').innerText = finalPrice.toLocaleString();\
+\
+        // \uc0\u1044 \u1072 \u1085 \u1085 \u1099 \u1077  \u1076 \u1083 \u1103  \u1073 \u1083 \u1072 \u1085 \u1082 \u1072 \
+        document.getElementById('summary').innerHTML = `\
+            <p><strong>\uc0\u1050 \u1083 \u1080 \u1077 \u1085 \u1090 :</strong> $\{document.getElementById('clientName').value || '________________'\}</p>\
+            <p><strong>\uc0\u1055 \u1077 \u1088 \u1080 \u1086 \u1076  \u1079 \u1072 \u1077 \u1079 \u1076 \u1072 :</strong> $\{dateInput\} ($\{isHighSeason ? '\u1051 \u1077 \u1090 \u1085 \u1080 \u1081  \u1089 \u1077 \u1079 \u1086 \u1085 ' : '\u1057 \u1090 \u1072 \u1085 \u1076 \u1072 \u1088 \u1090 \u1085 \u1099 \u1081  \u1089 \u1077 \u1079 \u1086 \u1085 '\})</p>\
+            <p><strong>\uc0\u1055 \u1088 \u1086 \u1075 \u1088 \u1072 \u1084 \u1084 \u1072 :</strong> $\{familySelect.options[familySelect.selectedIndex].text\}</p>\
+            <p><strong>\uc0\u1050 \u1072 \u1090 \u1077 \u1075 \u1086 \u1088 \u1080 \u1103  \u1085 \u1086 \u1084 \u1077 \u1088 \u1072 :</strong> $\{room\}</p>\
+            <p><strong>\uc0\u1044 \u1083 \u1080 \u1090 \u1077 \u1083 \u1100 \u1085 \u1086 \u1089 \u1090 \u1100 :</strong> $\{weekSelect.options[weekSelect.selectedIndex].text\}</p>\
+        `;\
+        \
+        document.getElementById('seasonIndicator').innerText = isHighSeason ? "\uc0\u9728  \u1051 \u1077 \u1090 \u1085 \u1080 \u1077  \u1094 \u1077 \u1085 \u1099  (\u1089  01.05 \u1087 \u1086  15.10)" : "\u10052  \u1057 \u1090 \u1072 \u1085 \u1076 \u1072 \u1088 \u1090 \u1085 \u1099 \u1077  \u1094 \u1077 \u1085 \u1099 ";\
+        document.getElementById('seasonIndicator').className = "season-badge " + (isHighSeason ? "summer" : "winter");\
+        document.getElementById('promoNote').style.display = family.includes('free') ? 'block' : 'none';\
+    \}\
+\
+    function syncPrint() \{ calculate(); \}\
+    updateOptions();\
+</script>\
+\
+</body>\
+</html>}
